@@ -15,7 +15,7 @@ connectToDb();
 
 // ✅ Allow CORS for your frontend
 app.use(cors({
-    origin: "https://grameen-go-main.vercel.app", // Allow only your frontend
+    origin: "https://grameen-go-7bvq.vercel.app/login", // Allow only your frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));

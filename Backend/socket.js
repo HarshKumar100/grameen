@@ -7,7 +7,7 @@ let io;
 function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
-            origin: ["https://grameen-go-main.vercel.app"], // Only allow frontend domain
+            origin: ["https://grameen-go-7bvq.vercel.app/login"], // Only allow frontend domain
             methods: ["GET", "POST"],
             credentials: true
         }
