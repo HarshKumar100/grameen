@@ -40,8 +40,9 @@ const AdminHome = () => {
     const { socket } = useContext(SocketContext)
     const { admin } = useContext(AdminDataContext)
 
+    console.log(admin)
     useEffect(() => {
-        socket.emit("join", { adminType: "admin", adminId: admin._id })
+        socket.emit("join", { userType: "admin", userId: 1 })
     }, [ admin ])
 
     socket.on('ride-confirmed', ride => {
@@ -55,7 +56,7 @@ const AdminHome = () => {
     socket.on('ride-started', ride => {
         console.log("ride")
         setWaitingForDriver(false)
-        navigate('/riding', { state: { ride } }) // Updated navigate to include ride data
+        navigate('/admin-riding', { state: { ride } }) // Updated navigate to include ride data
     })
 
     useEffect(() => {
@@ -240,7 +241,7 @@ const AdminHome = () => {
 
     return (
         <div className='h-screen relative overflow-hidden'>
-            <img className='w-16 absolute left-5 top-5' src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="" />
+            <img className='w-16 ml-8' src='/log.png' alt="GrameenGo Logo" />
             <div className='h-screen w-screen'>
                 {/* image for temporary use  */}
                 <LiveTracking />

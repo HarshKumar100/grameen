@@ -18,6 +18,8 @@ import AdminLogin from './pages/AdminLogin'
 import AdminProtectWrapper from './pages/AdminProtectWrapper'
 import AdminHome from './pages/AdminHome'
 import AdminSignup from './pages/AdminSignup'
+import AdminRiding from './pages/AdminRiding'
+import AdminLogout from './pages/AdminLogout'
 
 const App = () => {
 
@@ -29,6 +31,7 @@ const App = () => {
         <Route path='/riding' element={<Riding />} />
         <Route path='/captain-riding' element={<CaptainRiding />} />
 
+        <Route path='/admin-riding' element={<AdminRiding />} />
         <Route path='/admin-login' element={<AdminLogin />} />
         <Route path='/admin-signup' element={<AdminSignup />} />
 
@@ -62,6 +65,11 @@ const App = () => {
           <CaptainProtectWrapper>
             <CaptainLogout />
           </CaptainProtectWrapper>
+        } />
+        <Route path='/admin/logout' element={
+          <AdminProtectWrapper>
+            <AdminLogout />
+          </AdminProtectWrapper>
         } />
       </Routes>
     </div>

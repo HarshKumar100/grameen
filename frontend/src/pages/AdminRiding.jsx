@@ -5,7 +5,7 @@ import { SocketContext } from '../context/SocketContext'
 import { useNavigate } from 'react-router-dom'
 import LiveTracking from '../components/LiveTracking'
 
-const Riding = () => {
+const AdminRiding = () => {
     const location = useLocation()
     const { ride } = location.state || {} // Retrieve ride data
     const { socket } = useContext(SocketContext)
@@ -61,4 +61,4 @@ const Riding = () => {
     )
 }
 
-export default Riding
+export default AdminRiding
