@@ -13,10 +13,10 @@ const adminRoutes = require('./routes/admin.routes');
 
 connectToDb();
 
-// ✅ Allow CORS for your frontend
 app.use(cors({
-    origin: "https://grameen-go-7bvq.vercel.app/login", // Allow only your frontend
+    origin: "https://grameen-go-7bvq.vercel.app", // ✅ Correct frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Authorization", "Content-Type"],
     credentials: true
 }));
 
