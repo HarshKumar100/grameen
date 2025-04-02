@@ -13,7 +13,15 @@ const adminRoutes = require('./routes/admin.routes');
 
 connectToDb();
 
-app.use(cors());
+// Instead of the simple app.use(cors());
+app.use(cors({
+    origin: ['https://grameen-go-7bvq.vercel.app', 'http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

@@ -7,10 +7,11 @@ let io;
 function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
-            origin: '*',
-            methods: [ 'GET', 'POST' ]
+          origin: ['https://grameen-go-7bvq.vercel.app', 'http://localhost:3000'],
+          methods: ['GET', 'POST'],
+          credentials: true
         }
-    });
+      });
 
     io.on('connection', (socket) => {
         console.log(`Client connected: ${socket.id}`);
