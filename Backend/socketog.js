@@ -7,14 +7,14 @@ let io;
 function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
-            origin: ["https://grameen-go-main.vercel.app"], // Only allow frontend domain
-            methods: ["GET", "POST"],
-            credentials: true
+            origin: '*',
+            methods: [ 'GET', 'POST' ]
         }
     });
 
     io.on('connection', (socket) => {
         console.log(`Client connected: ${socket.id}`);
+
 
         socket.on('join', async (data) => {
             const { userId, userType } = data;
@@ -25,6 +25,7 @@ function initializeSocket(server) {
                 await captainModel.findByIdAndUpdate(userId, { socketId: socket.id });
             }
         });
+
 
         socket.on('update-location-captain', async (data) => {
             const { userId, location } = data;
@@ -48,7 +49,8 @@ function initializeSocket(server) {
 }
 
 const sendMessageToSocketId = (socketId, messageObject) => {
-    console.log(messageObject);
+
+console.log(messageObject);
 
     if (io) {
         io.to(socketId).emit(messageObject.event, messageObject.data);

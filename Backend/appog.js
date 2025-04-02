@@ -13,16 +13,12 @@ const adminRoutes = require('./routes/admin.routes');
 
 connectToDb();
 
-// ✅ Allow CORS for your frontend
-app.use(cors({
-    origin: "https://grameen-go-main.vercel.app", // Allow only your frontend
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-}));
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+
 
 app.get('/', (req, res) => {
     res.send('Hello World');
@@ -34,4 +30,8 @@ app.use('/maps', mapsRoutes);
 app.use('/rides', rideRoutes);
 app.use('/admins', adminRoutes);
 
+
+
+
 module.exports = app;
+
