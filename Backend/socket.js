@@ -7,19 +7,18 @@ let io;
 function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
-            origin: ["https://grameen-go-7bvq.vercel.app"], // ✅ Correct frontend URL
+            origin: ["https://grameen-go-main.vercel.app"], // Only allow frontend domain
             methods: ["GET", "POST"],
-            allowedHeaders: ["Authorization", "Content-Type"],
             credentials: true
-        },
-        transports: ["websocket", "polling"], // ✅ Ensure both transports are enabled
+        }
     });
 
     io.on('connection', (socket) => {
-        console.log(`✅ Client connected: ${socket.id}`);
+        console.log(`Client connected: ${socket.id}`);
 
         socket.on('join', async (data) => {
             const { userId, userType } = data;
+
             if (userType === 'user') {
                 await userModel.findByIdAndUpdate(userId, { socketId: socket.id });
             } else if (userType === 'captain') {
@@ -29,6 +28,7 @@ function initializeSocket(server) {
 
         socket.on('update-location-captain', async (data) => {
             const { userId, location } = data;
+
             if (!location || !location.ltd || !location.lng) {
                 return socket.emit('error', { message: 'Invalid location data' });
             }
@@ -42,7 +42,7 @@ function initializeSocket(server) {
         });
 
         socket.on('disconnect', () => {
-            console.log(`❌ Client disconnected: ${socket.id}`);
+            console.log(`Client disconnected: ${socket.id}`);
         });
     });
 }
@@ -53,7 +53,7 @@ const sendMessageToSocketId = (socketId, messageObject) => {
     if (io) {
         io.to(socketId).emit(messageObject.event, messageObject.data);
     } else {
-        console.log('❌ Socket.io not initialized.');
+        console.log('Socket.io not initialized.');
     }
 }
 

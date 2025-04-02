@@ -14,29 +14,24 @@ const AdminLogin = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-  
-    const adminData = { email, password };
-    const apiUrl = `${import.meta.env.VITE_BASE_URL}/admins/login`;
-  
-    console.log("Making request to:", apiUrl); // ✅ Debugging
-  
-    try {
-      const response = await axios.post(apiUrl, adminData, { withCredentials: true });
-  
-      if (response.status === 200) {
-        const data = response.data;
-        setAdmin(data.admin);
-        localStorage.setItem("token", data.token);
-        navigate("/admin-home");
-      }
-    } catch (error) {
-      console.error("Login Error:", error);
+
+    const adminData = {
+      email: email,
+      password: password
     }
-  
-    setEmail("");
-    setPassword("");
-  };
-  
+
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admins/login`, adminData)
+
+    if (response.status === 200) {
+      const data = response.data
+      setAdmin(data.admin)
+      localStorage.setItem('token', data.token)
+      navigate('/admin-home')
+    }
+
+    setEmail('')
+    setPassword('')
+  }
 
   return (
     <div className='p-7 h-screen flex flex-col justify-between'>
