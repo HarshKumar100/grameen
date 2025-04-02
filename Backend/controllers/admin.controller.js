@@ -1,7 +1,7 @@
 const adminModel = require('../models/admin.model');
 const adminService = require('../services/admin.service');
 const { validationResult } = require('express-validator');
-const blackListTokenModel = require('../models/blackListToken.model');
+const blackListTokenModel = require('../models/blacklistToken.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
