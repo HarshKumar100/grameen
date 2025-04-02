@@ -252,7 +252,7 @@ const Home = () => {
                     }} className='absolute opacity-0 right-6 top-6 text-2xl'>
                         <i className="ri-arrow-down-wide-line"></i>
                     </h5>
-                    <h4 className='text-2xl font-semibold'>Take your order</h4>
+                    <h4 className='text-2xl font-semibold'>Take your parcel</h4>
                     <form className='relative py-3' onSubmit={(e) => {
                         submitHandler(e)
                     }}>
@@ -277,12 +277,12 @@ const Home = () => {
                             onChange={handleDestinationChange}
                             className='bg-[#eee] px-12 py-2 text-lg rounded-lg w-full  mt-3'
                             type="text"
-                            placeholder='Location of order' />
+                            placeholder='Location of parcel' />
                     </form>
                     <button
                         onClick={findTrip}
                         className='bg-black text-white px-4 py-2 rounded-lg mt-3 w-full'>
-                        Take your order
+                        Take your parcel
                     </button>
                 </div>
                 <div ref={panelRef} className='bg-white h-0'>

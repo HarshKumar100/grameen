@@ -21,8 +21,8 @@ const CaptainDetails = () => {
             <div className='flex p-3 mt-8 bg-gray-100 rounded-xl justify-center gap-5 items-start'>
                 <div className='text-center'>
                     <i className="text-3xl mb-2 font-thin ri-timer-2-line"></i>
-                    <h5 className='text-lg font-medium'>10.2</h5>
-                    <p className='text-sm text-gray-600'>Hours Online</p>
+                    <h5 className='text-lg font-medium'>12</h5>
+                    <p className='text-sm text-gray-600'>Total Hours</p>
                 </div>
                 <div className='text-center'>
                     <i className="text-3xl mb-2 font-thin ri-speed-up-line"></i>
@@ -31,8 +31,8 @@ const CaptainDetails = () => {
                 </div>
                 <div className='text-center'>
                     <i className="text-3xl mb-2 font-thin ri-booklet-line"></i>
-                    <h5 className='text-lg font-medium'>10.2</h5>
-                    <p className='text-sm text-gray-600'>Hours Online</p>
+                    <h5 className='text-lg font-medium'>9</h5>
+                    <p className='text-sm text-gray-600'>Working Hours</p>
                 </div>
 
             </div>
