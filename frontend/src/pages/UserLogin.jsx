@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const UserLogin = () => {
+  console.log(import.meta.env.VITE_BASE_URL);
+
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ userData, setUserData ] = useState({})
