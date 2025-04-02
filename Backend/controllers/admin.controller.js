@@ -1,7 +1,7 @@
 const adminModel = require('../models/admin.model');
 const adminService = require('../services/admin.service');
 const { validationResult } = require('express-validator');
-const blackListTokenModel = require('../models/blacklistToken.model');
+const blacklistTokenModel = require('../models/blacklistToken.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -80,7 +80,7 @@ module.exports.logoutAdmin = async (req, res, next) => {
     res.clearCookie('token');
     const token = req.cookies.token || req.headers.authorization.split(' ')[ 1 ];
 
-    await blackListTokenModel.create({ token });
+    await blacklistTokenModel.create({ token });
 
     res.status(200).json({ message: 'Logged out' });
 }

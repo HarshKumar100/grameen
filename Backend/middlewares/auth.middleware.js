@@ -1,7 +1,7 @@
 const userModel = require('../models/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const blackListTokenModel = require('../models/blackListToken.model');
+const blacklistTokenModel = require('../models/blacklistToken.model');
 const captainModel = require('../models/captain.model');
 const adminModel = require('../models/admin.model');
 
@@ -14,7 +14,7 @@ module.exports.authUser = async (req, res, next) => {
     }
 
 
-    const isBlacklisted = await blackListTokenModel.findOne({ token: token });
+    const isBlacklisted = await blacklistTokenModel.findOne({ token: token });
 
     if (isBlacklisted) {
         return res.status(401).json({ message: 'Unauthorized' });
@@ -71,7 +71,7 @@ module.exports.authAdmin = async (req, res, next) => {
     }
 
 
-    const isBlacklisted = await blackListTokenModel.findOne({ token: token });
+    const isBlacklisted = await blacklistTokenModel.findOne({ token: token });
 
     if (isBlacklisted) {
         return res.status(401).json({ message: 'Unauthorized' });
