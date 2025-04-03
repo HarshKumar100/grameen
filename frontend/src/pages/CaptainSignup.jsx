@@ -121,7 +121,7 @@ const CaptainSignup = () => {
               required
               className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base'
               type="text"
-              placeholder='Vehicle Color'
+              placeholder='Aadhaar Number'
               value={vehicleColor}
               onChange={(e) => {
                 setVehicleColor(e.target.value)
@@ -158,9 +158,9 @@ const CaptainSignup = () => {
               }}
             >
               <option value="" disabled>Select Vehicle Type</option>
-              <option value="car">Car</option>
-              <option value="auto">Auto</option>
-              <option value="moto">Moto</option>
+              <option value="car">GrameenCar</option>
+              <option value="auto">GrameenAuto</option>
+              <option value="moto">GrameenMoto</option>
             </select>
           </div>
 
